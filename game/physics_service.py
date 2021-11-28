@@ -1,10 +1,12 @@
 from game.actor import Actor
 import raylibpy
 
+'''
+This will determine where the player can actually go.
+If they try to go through a solid block or a explodable block they wont be able too.  
+This class will determine collisions from bombs to players and explodable blocks. 
+'''
 class PhysicsService:
-    """
-    Used for actions relating to Physics, such as determining collisions.
-    """
     def __init__(self):
         pass
 
