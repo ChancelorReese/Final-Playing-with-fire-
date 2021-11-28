@@ -2,6 +2,12 @@ from game import constants
 from game.actor import Actor
 from game.point import Point
 
+
+''' 
+This class is just to make bloacks that cannot explode. 
+There are other blocks that will impliments some aspects of this class
+but will be able to explode on colisions. 
+'''
 class SolidBlock(Actor):
     def __init__(self,row,column):
         super().__init__()
