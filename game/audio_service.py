@@ -30,14 +30,15 @@
 #         sound = self._sounds[filename]
 #         raylibpy.play_sound(sound)
 
+
+
+# Initializes the audio device so that sounds can be played.
 #     def start_audio(self):
-#         """
-#         Initializes the audio device so that sounds can be played.
-#         """
+#         
 #         raylibpy.init_audio_device()
 
+
+# Ends audio
 #     def stop_audio(self):
-#         """
-#         Closes the audio device at the end of the program.
-#         """
+#
 #         raylibpy.close_audio_device()
