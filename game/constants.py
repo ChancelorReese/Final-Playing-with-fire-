@@ -8,7 +8,7 @@ DEFAULT_SQUARE_SIZE = 20
 DEFAULT_FONT_SIZE = 20
 DEFAULT_TEXT_OFFSET = 4
 
-IMAGE_BLOCK = os.path.join(os.getcwd(), "./assets/block.png")
+#IMAGE_BLOCK = os.path.join(os.getcwd(), "./assets/block.png")
 
 # SOUND_START = os.path.join(os.getcwd(), "./assets/start.wav")
 # SOUND_BOUNCE = os.path.join(os.getcwd(), "./assets/boing.wav")

@@ -11,6 +11,8 @@ from game.draw_actors_action import DrawActorsAction
 from game.input_service import InputService
 from game.output_service import OutputService
 from game.physics_service import PhysicsService
+from game.move_actors_action import MoveActorsAction
+from game.control_actors_action import ControlActorsAction
 #from game.audio_service import AudioService
 
 from game.solid_blocks import SolidBlock
@@ -30,18 +32,32 @@ def main():
     cast["blocks"] = []
     cast["players"] = []
 
+    player = Actor()
+    player.set_width(20)
+    player.set_height(20)
+
+    player_position = Point(20, 20)
+
+
+    player.set_position(player_position)
+
+    cast["players"].append(player)
+
+
 
     script = {}
 
     input_service = InputService()
     output_service = OutputService()
     physics_service = PhysicsService()
+    move_actors_action = MoveActorsAction()
+    control_actors_action = ControlActorsAction(input_service)
     # audio_service = AudioService()
 
     draw_actors_action = DrawActorsAction(output_service)
 
-    script["input"] = []
-    script["update"] = []
+    script["input"] = [input_service]
+    script["update"] = [ControlActorsAction, MoveActorsAction]
     script["output"] = [draw_actors_action]
     
     output_service.open_window("Playing with Fire")
