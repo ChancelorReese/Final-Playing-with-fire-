@@ -3,7 +3,7 @@ os.environ['RAYLIB_BIN_PATH'] = '.'
 
 import raylibpy
 import random
-from game import constants
+from game import constants, handle_collisions_action
 from game.director import Director
 from game.actor import Actor
 from game.point import Point
@@ -13,6 +13,7 @@ from game.output_service import OutputService
 from game.physics_service import PhysicsService
 from game.move_actors_action import MoveActorsAction
 from game.control_actors_action import ControlActorsAction
+from game.handle_collisions_action import HandleCollisionsAction
 #from game.audio_service import AudioService
 
 from game.solid_blocks import SolidBlock
@@ -52,12 +53,13 @@ def main():
     physics_service = PhysicsService()
     move_actors_action = MoveActorsAction()
     control_actors_action = ControlActorsAction(input_service)
+    handle_collisions_action = HandleCollisionsAction(Point)
     # audio_service = AudioService()
 
     draw_actors_action = DrawActorsAction(output_service)
 
-    script["input"] = [input_service]
-    script["update"] = [ControlActorsAction, MoveActorsAction]
+    script["input"] = [control_actors_action]
+    script["update"] = [move_actors_action, handle_collisions_action]
     script["output"] = [draw_actors_action]
     
     output_service.open_window("Playing with Fire")

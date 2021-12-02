@@ -17,6 +17,7 @@ class InputService:
         Args:
             self (InputService): An instance of InputService.
         """
+
         pass
         
     def get_direction(self):
