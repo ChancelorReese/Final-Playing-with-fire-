@@ -26,6 +26,8 @@ class ControlActorsAction(Action):
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
-        direction = self._input_service.get_direction()
-        player = cast["players"][0] # there's only one in the cast
-        player.set_velocity(direction)       
+        direction1 = self._input_service.get_direction()
+        player2 = cast["players"][1]
+        player1 = cast["players"][0] # there's only one in the cast
+        player1.set_velocity(direction1)   
+        player2.set_velocity(direction1)    

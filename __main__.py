@@ -33,16 +33,27 @@ def main():
     cast["blocks"] = []
     cast["players"] = []
 
-    player = Actor()
-    player.set_width(20)
-    player.set_height(20)
+    player1 = Actor()
+    player1.set_width(20)
+    player1.set_height(20)
 
     player_position = Point(20, 20)
 
 
-    player.set_position(player_position)
+    player1.set_position(player_position)
 
-    cast["players"].append(player)
+    cast["players"].append(player1)
+
+    player2 = Actor()
+    player2.set_width(20)
+    player2.set_height(20)
+
+    player_position = Point(810, 610)
+
+
+    player2.set_position(player_position)
+
+    cast["players"].append(player2)
 
 
 
@@ -53,13 +64,13 @@ def main():
     physics_service = PhysicsService()
     move_actors_action = MoveActorsAction()
     control_actors_action = ControlActorsAction(input_service)
-    handle_collisions_action = HandleCollisionsAction(Point)
+    handle_collisions_action = HandleCollisionsAction(physics_service)
     # audio_service = AudioService()
 
     draw_actors_action = DrawActorsAction(output_service)
 
     script["input"] = [control_actors_action]
-    script["update"] = [move_actors_action, handle_collisions_action]
+    script["update"] = [handle_collisions_action, move_actors_action]
     script["output"] = [draw_actors_action]
     
     output_service.open_window("Playing with Fire")

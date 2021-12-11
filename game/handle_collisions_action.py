@@ -1,6 +1,7 @@
 from game import constants
 from game.action import Action
 from game.point import Point
+from game.solid_blocks import SolidBlock 
 # from game.audio_service import AudioService
 
 class HandleCollisionsAction(Action):
@@ -11,7 +12,7 @@ class HandleCollisionsAction(Action):
         
     def execute(self, cast):
         """Executes the action using the given actors.
-
+        
         Args:
             cast (dict): The game actors {key: tag, value: list}.
         """
@@ -22,8 +23,8 @@ class HandleCollisionsAction(Action):
 
             collision_count = 0
             # destroy = -1
-            for count in range(len(blocks)):
-                if self._physics_service.is_collision(player, blocks[count]):
+            for count in range(len(cast["solid_blocks"])):
+                if self._physics_service.is_collision(player, cast["solid_blocks"][count]):
                     # destroy = count
                     # collision_count += 1
 
